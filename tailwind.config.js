@@ -7,8 +7,11 @@ module.exports = {
         'roboto': ["Roboto", "sans-serif"],
         'jacquard12': ["Jacquard 12", 'system-ui'],
         'oswald': ["Oswald", "sans-serif"],
+        'hankenGrotesk': ["Hanken Grotesk", "sans-serif"],
+        'hk_Grotesk': ["HK Grotesk", "sans-serif"],
        
       },
+    
     },
   },
   plugins: [],

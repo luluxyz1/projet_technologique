@@ -9,9 +9,13 @@
 </head>
 <body>
 
-    <!-- <nav class="relative w-full h-24 flex flex-row bg-[#AFCBFF]">
-        <div class="w-full h-full">
-
+    <nav class="relative w-full h-24 flex flex-row bg-[#AFCBFF]">
+        <div class="w-full h-full flex justify-start mx-5 items-center">
+            <div class="flex flex-col">
+                <h1 class="font-hk_Grotesk font-extrabold">CAPTECH</h1>
+                <h2 class="font-hankenGrotesk font-extralight">Dashboard</h2>
+            </div>
+            
         </div>
         <div class="w-full h-full">
             <div class="h-full flex justify-end items-center">
@@ -71,13 +75,50 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> <!-- Dropdown profile -->
 
-    <div class="flex justify-start p-5 items-start h-screen w-full bg-[#0E1C36]">
-        <div class="bg-white w-[70%] h-24">
-            <h1 class="text-3xl font-roboto font-medium">Mes projets</h1>
+    <button class="p-5 flex flex-row justify-start">
+        <a class="cursor-pointer">
+            <div id="new-project-button" class=" w-[300px] py-5 flex flex-row items-center h-6 rounded-lg border border-black">
+                <div class="flex w-full px-3 justify-start">
+                    <h1 class="text-lg font-roboto font-normal">Nouveau projet</h1>
+                </div>
+                <div  class="flex w-full justify-end">
+                    <img id="new-project-button-image" src="images/plus-large-svgrepo-com.svg" class="w-4 mx-3 h-4 object-cover">
+                </div>
+            </div>
+        </a>
+
+        
+    </button> <!-- New project button -->
+
+    <section  class="flex flex-col justify-start items-start h-full w-full">
+        <div class="bg-white flex flex-col items-start px-5 justify-center w-[70%] h-24">
+            <h1 class="text-3xl font-hk_Grotesk font-extrabold text-black">MES PROJETS</h1>
         </div>
-    </div>
+        <div class="flex flex-row px-5 font-roboto font-medium">
+            <div class="h-16 w-96 border-2 flex items-center border-black">
+                <h1 class="px-5">Test</h1>
+            </div>
+            <div class="h-16 w-96 mx-5 border-2 flex items-center border-black">
+                <h1 class="px-5">Test</h1>
+            </div>
+            <div class="h-16 w-96 border-2 flex items-center border-black">
+                <h1 class="px-5">Test</h1>
+            </div>
+        </div>
+    </section> <!-- Projects section -->
+
+
+    <div class="my-5 px-5 w-full">
+        <hr class="border border-gray-200">
+    </div> <!-- Separateur -->
+
+    
+    
+    
+
+    
     
 
 
