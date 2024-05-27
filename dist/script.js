@@ -3,6 +3,8 @@ const dropdownProfile = document.getElementById('dropdown-profile')
 const imageChevronProfile = document.getElementById('chevron')
 const newProjectButtonImage = document.getElementById('new-project-button-image')
 const newProjectButton = document.getElementById('new-project-button')
+const newTeamButton = document.getElementById('new-team-button')
+const newTeamButtonImage = document.getElementById('new-team-button-image')
 
 
 newProjectButton.addEventListener('mouseover', () => {

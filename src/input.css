@@ -13,7 +13,6 @@
         url(../fonts/OTF/HKGroteskWide-SemiBold.otf) format(ttf),
 }
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
