@@ -117,34 +117,32 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
     </div> <!-- Dropdown profile -->
 
-    <div class="p-5 flex flex-row justify-start">
-        <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="cursor-pointer">
-            <div id="new-project-button" class=" w-[300px] py-5 flex flex-row items-center h-6 rounded-lg border border-black">
-                <div class="flex w-full px-3 justify-start">
-                    <h1 class="text-lg font-roboto font-normal">Nouveau projet</h1>
+    <div class="flex flex-row">
+        <div class="p-5 flex flex-row justify-start">
+            <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="cursor-pointer">
+                <div id="new-project-button" class=" w-[300px] py-5 flex flex-row items-center h-6 rounded-lg border border-black">
+                    <div class="flex w-full px-3 justify-start">
+                        <h1 class="text-xs font-roboto font-normal">Nouveau projet</h1>
+                    </div>
+                    <div class="flex w-full justify-end">
+                        <img id="new-project-button-image" src="images/plus-large-svgrepo-com.svg" class="w-4 mx-3 h-4 object-cover">
+                    </div>
                 </div>
-                <div class="flex w-full justify-end">
-                    <img id="new-project-button-image" src="images/plus-large-svgrepo-com.svg" class="w-4 mx-3 h-4 object-cover">
+            </button>
+        </div> <!-- New project button -->
+        <div class="p-5 flex flex-row justify-start">
+            <button data-modal-target="crud-team-modal" data-modal-toggle="crud-team-modal" class="cursor-pointer">
+                <div id="new-team-button" class=" w-[300px] py-5 flex flex-row items-center h-6 rounded-lg border border-black">
+                    <div class="flex w-full px-3 justify-start">
+                        <h1 class="text-xs font-roboto font-normal">Créer nouvelle équipe</h1>
+                    </div>
+                    <div class="flex w-full justify-end">
+                        <img id="new-team-button-image" src="images/plus-large-svgrepo-com.svg" class="w-4 mx-3 h-4 object-cover">
+                    </div>
                 </div>
-            </div>
-        </button>
-
-
-    </div> <!-- New project button -->
-    <div class="p-5 flex flex-row justify-start">
-        <button data-modal-target="crud-team-modal" data-modal-toggle="crud-team-modal" class="cursor-pointer">
-            <div id="new-team-button" class=" w-[300px] py-5 flex flex-row items-center h-6 rounded-lg border border-black">
-                <div class="flex w-full px-3 justify-start">
-                    <h1 class="text-lg font-roboto font-normal">Créer nouvelle équipe</h1>
-                </div>
-                <div class="flex w-full justify-end">
-                    <img id="new-team-button-image" src="images/plus-large-svgrepo-com.svg" class="w-4 mx-3 h-4 object-cover">
-                </div>
-            </div>
-        </button>
-
-
-    </div> <!-- New team button -->
+            </button>
+        </div> <!-- New team button -->
+    </div>
 
     <section class="flex flex-col justify-start items-start h-full w-full">
         <div class="bg-white flex flex-col items-start px-5 justify-center w-[70%] h-24">
@@ -176,12 +174,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                         Créer un nouveau projet
                     </h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                        </svg>
-                        <span class="sr-only">Fermer fenêtre</span>
-                    </button>
+
                 </div>
                 <!-- Modal body -->
                 <form action="index.php" class="p-4 md:p-5">
@@ -238,12 +231,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
                         Créer une nouvelle équipe
                     </h3>
-                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="crud-modal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                        </svg>
-                        <span class="sr-only">Fermer fenêtre</span>
-                    </button>
+
                 </div>
                 <!-- Modal body -->
                 <form action="index.php" class="p-4 md:p-5">
