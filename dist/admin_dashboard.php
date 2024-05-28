@@ -1,42 +1,5 @@
-<?php
-
-session_start();
-
-require_once "includes/dbh.inc.php";
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    $name = $_POST["name"];
-    $date_debut = $_POST["date_debut"];
-    $date_fin = $_POST["date_fin"];
-    $budget = $_POST["budget"];
-    $description = $_POST["description"];
-    $equipe = $_POST["equipe"];
-
-    $sql = "INSERT INTO projet (titre_projet, date_debut, date_fin_prevue, budget, description, id_equipe) VALUES (:name, :date_debut, :date_fin, :budget, :description, :id_equipe)";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute([
-        ":name" => $name,
-        ":date_debut" => $date_debut,
-        ":date_fin" => $date_fin,
-        ":budget" => $budget,
-        ":description" => $description
-    ]);
-
-    header("Location: index.php?newProject=success");
-    $pdo = null;
-    $stmt = null;
-}
-
-
-?>
-
-
-
-
-
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -48,75 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </head>
 
 <body>
-
-    <nav class="relative w-full h-24 flex flex-row bg-[#AFCBFF]">
-        <div class="w-full h-full flex justify-start mx-5 items-center">
-            <div class="flex flex-col">
-                <h1 class="font-hk_Grotesk font-extrabold">CAPTECH</h1>
-                <h2 class="font-hankenGrotesk font-extralight">Dashboard</h2>
-            </div>
-
-        </div>
-        <div class="w-full h-full">
-            <div class="h-full flex justify-end items-center">
-                <div class="w-24 flex flex-row justify-center items-center">
-                    <a id="dropdown-button-profile" class="cursor-pointer flex flex-row justify-center items-center hover:invert transition-all hover:transition-all">
-                        <img src="images/profil.png" class="w-6 h-6 object-cover">
-                        <img id="chevron" src="images/chevron-down-svgrepo-com.svg" class="w-4 h-4 transition-all object-cover">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <div class="relative text-black flex w-full h-full justify-end">
-        <div id="dropdown-profile" class="absolute bg-[#ADCAFF] rounded-b-lg mr-6 hidden w-64">
-            <div class="p-4 flex justify-center items-center flex-row">
-                <div class="mr-3">
-                    <img src="images/2.jpeg" class="w-16 h-16  rounded-lg object-cover " alt="">
-                </div>
-                <div class="text-left font-roboto">
-                    <h6 class="font-light text-xs italic">Administrateur</h6>
-
-                    <h1 class="text-lg font-medium">Lucas Ferreira</h1>
-                    <h2 class="text-sm font-light">lucas.ferreira@edu.ece.fr</h2>
-
-                </div>
-            </div>
-            <div class="flex px-4 pb-2 justify-center items-center w-full">
-                <hr class="border w-full  border-black">
-            </div>
-            <div class="p-4 font-roboto font-normal">
-                <div class="w-full ">
-                    <a class="cursor-pointer hover:underline underline-offset-2 hover:bg-[#99BDFF] flex flex-row items-center">
-                        <h1 class="text-lg  px-1 rounded-lg">Profil</h1>
-                    </a>
-                </div>
-                <div>
-                    <a class="cursor-pointer hover:underline underline-offset-2 hover:bg-[#99BDFF] flex flex-row items-center">
-                        <h1 class="text-lg  px-1 rounded-lg">Se connecter</h1>
-                        <img src="images/chevron-down-svgrepo-com.svg" class="w-4 h-4 object-cover -rotate-90">
-                    </a>
-
-                </div>
-                <div>
-                    <a class="cursor-pointer hover:underline underline-offset-2 hover:bg-[#99BDFF] flex flex-row items-center">
-                        <h1 class="text-lg hover:bg-[#99BDFF] px-1 rounded-lg">S'inscrire</h1>
-                        <img src="images/chevron-down-svgrepo-com.svg" class="w-4 h-4 object-cover -rotate-90">
-                    </a>
-
-                </div>
-                <div>
-                    <a class="cursor-pointer hover:underline underline-offset-2 hover:bg-[#99BDFF] flex flex-row items-center">
-                        <h1 class="text-lg hover:bg-[#99BDFF] px-1 rounded-lg">Déconnexion</h1>
-                        <img src="images/chevron-down-svgrepo-com.svg" class="w-4 h-4 object-cover -rotate-90">
-                    </a>
-
-                </div>
-            </div>
-        </div>
-    </div> <!-- Dropdown profile -->
-
     <div class="flex flex-row">
         <div class="p-5 flex flex-row justify-start">
             <button data-modal-target="crud-modal" data-modal-toggle="crud-modal" class="cursor-pointer">
@@ -143,26 +37,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             </button>
         </div> <!-- New team button -->
     </div>
-
-    <section class="flex flex-col justify-start items-start h-full w-full">
-        <div class="bg-white flex flex-col items-start px-5 justify-center w-[70%] h-24">
-            <h1 class="text-3xl font-hk_Grotesk font-extrabold text-black">MES PROJETS</h1>
-        </div>
-        <div class="flex flex-row px-5 font-roboto font-medium">
-            <div class="h-16 w-96 border-2 flex items-center border-black">
-                <h1 class="px-5">Test</h1>
-            </div>
-        </div>
-    </section> <!-- Projects section -->
-
-
-    <div class="my-5 px-5 w-full">
-        <hr class="border border-gray-200">
-    </div> <!-- Separateur -->
-
-
-
-
 
     <!-- Modal création projet -->
     <div id="crud-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -195,11 +69,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             </div>
                         </div>
                         <div>
-                            <label for="equipe" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Choisissez votre équipe</label>
-                            <select name="equipe" id="equipe" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <?php foreach ($pdo->query("SELECT * FROM equipe") as $row) : ?>
-                                    <option value="<?= $row["id_equipe"] ?>"><?= $row["nom"] ?></option>
-                                <?php endforeach; ?>
+                            <label for="responsableProjet" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Responsable du projet</label>
+                            <select name="responsableProjet" id="responsableProjet" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                <option value="" disabled selected>Responsable du projet</option>
+
                             </select>
                         </div>
                         <div>
@@ -215,7 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <svg class="me-1 -ms-1 w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clip-rule="evenodd"></path>
                         </svg>
-                        Ajouter le nouveau projet
+                        Ajouter la nouvelle équipe
                     </button>
                 </form>
             </div>
@@ -238,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     <div class="grid gap-4 mb-4 grid-cols-2">
                         <div class="col-span-2">
                             <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nom de l'équipe</label>
-                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Entrez le nom du projet" required="">
+                            <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Entrez le nom de l'équipe" required="">
                         </div>
                     </div>
                     <button name="newProject" type="submit" class="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
@@ -253,13 +126,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 
 
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <script src="script.js"></script>
+    <script src="script_admin.js"></script>
 </body>
 
 </html>

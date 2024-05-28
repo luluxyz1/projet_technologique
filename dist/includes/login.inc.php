@@ -1,13 +1,12 @@
-<?php 
-
+<?php
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $username = $_POST["username"];
-    $pwd = $_POST["password"];
+    $email = $_POST["email"];
+    $password = $_POST["password"];
 
     try {
-        
+
         require_once "dbh.inc.php";
         require_once "login_model.inc.php";
         require_once "login_contr.inc.php";
@@ -16,20 +15,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors = [];
 
         // Vérifie si les champs sont vides
-        if (is_input_empty($username, $pwd)) {
+        if (is_input_empty($email, $password)) {
             $errors["empty_input"] = "Veuillez remplir tous les champs.";
         }
 
-        // Récupère l'utilisateur à partir du nom d'utilisateur
-        $result = get_user($pdo, $username);
+        // Récupère l'utilisateur à partir de l'email
+        $result = get_user($pdo, $email);
 
-        if (is_username_wrong($result)) {
-            $errors["login_incorrect"] = "Le nom d'utilisateur est incorrect.";
-        } 
-        if (!is_username_wrong($result) && is_password_wrong($pwd, $result["pwd"])) {
+        if (is_email_wrong($result)) {
+            $errors["login_incorrect"] = "Le mail est incorrect.";
+        }
+        if (!is_email_wrong($result) && is_password_wrong($password, $result["password"])) {
             $errors["login_incorrect"] = "Le mot de passe est incorrect.";
-        }   
-        
+        }
+
 
         require_once 'config_session.inc.php';
 
@@ -46,30 +45,27 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         session_id($sessionId);
 
         $_SESSION["user_id"] = $result["id"];
-        $_SESSION["user_username"] = htmlspecialchars($result["username"]);
+        $_SESSION["user_email"] = $result["email"];
 
         $_SESSION["last_regeneration"] = time();
-        
-        header("Location: ../index.php?login=success");
-        header("refresh:2;url=../index.php");
+
+        header("Location: ../user_dashboard.php?login=success");
+        header("refresh:2;url=../user_dashboard.php");
+
         $pdo = null;
         $stmt = null;
-        
-
-        
 
 
-        
+
+
+
+
 
         die();
-
-
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }
-
 } else {
     header("Location: ../login.php");
     die();
 }
-

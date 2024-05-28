@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-function is_input_empty(string $username, string $pwd, string $email) 
+function is_input_empty(string $email, string $password, string $nom, string $prenom)
 {
-    if (empty($username) || empty($pwd) || empty($email)) {
+    if (empty($email) || empty($password) || empty($nom) || empty($prenom)) {
         return true;
     } else {
         return false;
     }
-
 }
 
-function is_email_invalid(string $email) 
+
+function is_email_invalid(string $email)
 {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return true;
@@ -21,15 +21,7 @@ function is_email_invalid(string $email)
     }
 }
 
-function is_username_taken(object $pdo, string $username) 
-{
-    if (get_username($pdo, $username)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-function is_email_registered(object $pdo, string $email) 
+function is_email_registered(object $pdo, string $email)
 {
     if (get_email($pdo, $email)) {
         return true;
@@ -38,6 +30,7 @@ function is_email_registered(object $pdo, string $email)
     }
 }
 
-function create_user(object $pdo, string $pwd, string $email,  string $username) {
-    set_user($pdo, $pwd, $email, $username);
+function create_user(object $pdo, string $email, string $nom, string $prenom, string $password)
+{
+    set_user($pdo, $email, $nom, $prenom, $password);
 }

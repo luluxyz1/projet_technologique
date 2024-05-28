@@ -21,25 +21,22 @@ require_once "includes/login_view.inc.php";
 
 </head>
 
-<body class="bg-[#ECE9EA]">
+<body>
 
 
 	<div class="flex flex-row h-screen w-full">
 		<div class="flex flex-col justify-center items-center h-screen w-1/2">
-			<div class="flex flex-col justify-center items-center p-5 w-3/4 ">
-				<img src="images/logoWhiteTsp.png" class="w-32 invert object-cover">
+			<div class="flex flex-col justify-center items-center p-5 w-full ">
+				<h1 class="font-hk_Grotesk text-4xl font-extrabold">CapTech</h1>
+				<!-- <a href="Admin/login.php" class="text-black font-logo text-sm underline hover:text-cyan-400">Connexion administrateur</a> -->
+				<hr class="border w-1/2 m-5 border-black">
 				<h1 class="text-xl font-logo">Connectez-vous à votre compte</h1>
-				<a href="Admin/login.php" class="text-black font-logo text-sm underline hover:text-cyan-400">Connexion administrateur</a>
-
-
-
-				<hr class="border w-1/2 mt-5 border-black">
 			</div>
 
-			<div class="flex flex-col p-5 w-3/4 ">
-				<form class="flex flex-col justify-center items-center" action="includes/login.inc.php" method="post">
+			<div class="flex flex-col p-5 w-full ">
+				<form class="flex flex-col justify-center  items-center" action="includes/login.inc.php" method="post">
 
-					<input type="text" name="username" placeholder="Nom d'utilisateur" class="p-3 bg-transparent w-1/2 border border-black bg-[#ECE9EA] mb-3 ">
+					<input type="text" name="email" placeholder="Email" class="p-3 bg-transparent w-1/2 border border-black bg-[#ECE9EA] mb-3 ">
 					<input type="password" name="password" placeholder="Mot de passe" class="p-3  bg-transparent w-1/2 border border-black bg-[#ECE9EA] mb-3 ">
 					<div class="justify-center my-3 flex h-1/2 w-1/2 border border-black bg-[#ECE9EA]">
 						<button class="p-3 font-logo text-black h-full w-full hover:text-white hover:bg-black transition-none hover:transition-all transition-500" type="submit" name="submit">Se connecter</button>
@@ -53,7 +50,6 @@ require_once "includes/login_view.inc.php";
 
 
 					<br>
-					<a href="index.php" class="text-black font-logo hover:underline hover:text-cyan-400">Retour à l'accueil</a>
 
 
 				</form>
